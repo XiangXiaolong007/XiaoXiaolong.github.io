@@ -486,7 +486,20 @@
       
         
           
-            
+            <p>很多人误以为Javascript中有else if,因为我们可以这样来写代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(b) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>事实上，JavaScript没有else if,但if 和 else只包含单条语句的时候可以省略代码块的{}。下面的代码你一定不会陌生：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a) doSomething(a);</span><br></pre></td></tr></table></figure>
+
+<p>很多JavaScript代码检查工具建议对单条语句也加上{},如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a) &#123; doSomething(a) &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>else也是如此，所以我们经常用到的else if实际上是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(b) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>if(b) {…} else {…} 实际上是跟在else后面的一个单独的语句，所以带不带{}都可以。换句话说，else if不符合前面介绍的编码规范，else中是一个单独的if语句。<br>else if极为常见，能省掉一层代码缩进，所以很受青睐。但这只是我们自己发明的方法，切勿想当然地认为这些都属于JavaScript语法的范畴。</p>
+
           
         
       
